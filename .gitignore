@@ -1,0 +1,11 @@
+# Ignore executable files
+*.exe
+
+# Ignore IDE specific folders
+.vs/
+.vscode/
+.idea/
+
+# Ignore compile-time files
+*.out
+*.o
