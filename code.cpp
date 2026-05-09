@@ -6,26 +6,24 @@ int print_arr(int arr[], int n ){
         cout<<arr[i]<<" ";
     }
 }
-int selection_sort(int arr[], int n ){
-    for(int i = 0 ; i<n-1 ; i++){
-       int minIdx = i;
-    //    loop to find min idx 
-        for(int j= i+1 ; j<n ; j++){
-            if(arr[j]<arr[minIdx]){
-            minIdx = j; }
+
+int insertion_sort(int arr[], int n ){
+    for(int i = 1 ; i <n ; i++){
+        int curr = arr[i];
+        int prev = i-1;
+        while (prev>=0 && arr[prev]>curr)
+        {
+           swap(arr[prev],arr[prev+1]);
+           prev--;
         }
-        swap(arr[i],arr[minIdx]);
-    }
-print_arr(arr,n);
-
-    
+        arr[prev+1]=curr;
+    }print_arr(arr,n);
 }
-
 
 int main (){
 int nums [] = {5,4,1,3,2};
 int n = sizeof(nums)/sizeof(int);
-selection_sort(nums,n);
+insertion_sort(nums,n);
 
 return 0;
 }
