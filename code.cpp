@@ -6,24 +6,27 @@ int print_arr(int arr[], int n ){
         cout<<arr[i]<<" ";
     }
 }
-
-int insertion_sort(int arr[], int n ){
-    for(int i = 1 ; i <n ; i++){
-        int curr = arr[i];
-        int prev = i-1;
-        while (prev>=0 && arr[prev]>curr)
-        {
-           swap(arr[prev],arr[prev+1]);
-           prev--;
+int counting_sort(int arr[],int n){
+    int freq[100000];
+    int minVal = INT_MAX , maxVal= INT_MIN;
+    for (int i = 0 ; i<n ;i++){
+        freq[arr[i]]++;
+        minVal = min(minVal,arr[i]);
+        maxVal = max(maxVal,arr[i]);
+    }
+    for(int i = minVal, j = 0 ;i<=maxVal; i++){
+        while(freq[i]>0){
+            arr[j++] = i;
+            freq[i]--;
         }
-        arr[prev+1]=curr;
-    }print_arr(arr,n);
+    }
+    print_arr(arr,n);
 }
 
 int main (){
-int nums [] = {5,4,1,3,2};
+int nums [] = {1,4,1,3,2,4,3,7};
 int n = sizeof(nums)/sizeof(int);
-insertion_sort(nums,n);
+counting_sort(nums,n);
 
 return 0;
 }
