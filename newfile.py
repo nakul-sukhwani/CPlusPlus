@@ -1,102 +1,79 @@
-# x = int(input("enter any integer"))
-# y = int (input("enter 2nd integer"))
-# sum = x+y
-# subtract = x-y
-# multiply = x*y
-# mod = x%y
-# exp = x**y
-# floor_D = x//y
-# print(sum)
-# print(subtract)
-# print(multiply)
-# print(mod)
-# print(exp)
-# print(floor_D)
-# a = 5 
-# b = 7 
-# if(a==b):
-#     print("a=b")
-# elif(a>b):
-#     print("x is greator than y")
-# elif(a<b):
-#     print("x is less than y ")
-# else: 
-#     print("x is not equal to y")
-# print(2*3//5)
-# print(10*(2//3))
-# print(2**2*(3//2)/(5+3)*(2**5)
-# )
-# a,b,c = 7 , 3, -2 
-# exp_num = int(input ("enter number of expressions to be entered : "))
-# for i in range (exp_num):
-#     user_input = input("type exit or Stop to exit or Continue to proceed ")
-#     if(user_input=="exit"):
-#         print("Exiting the loop")
-#         break 
-#     elif(user_input=="continue"):
-#         continue
+import math
+def is_perfectsquare(x):
+    a = int(math.sqrt(x))
+    return a*a == x
+def is_fibonacci(n):
+    return is_perfectsquare(5*n*n +4) or is_perfectsquare(5*n*n -4 )
 
-#     state = eval(input("enter your expression"))
+def count_1(s):
+    vowels = "AEIOUaeiou"
+    count = 0
+    for c in s:
+        if c in vowels:
+            count += 1
+    return count
 
-#     result = bool(False)
-#     if (state):
-#         result = True
-#     else:
-#         result = False
-#     print(result)
+def is_palindrome(string):
+    clean_string = string.replace(" ","").lower()
+    if clean_string == clean_string[::-1]:
+        return True
+    return False
+# text = "madam"
+# # if is_palindrome(text):
+#     print("string is palindrome")
+# # else:
+#     print("not palindrome")
 
-# Dataset = {10,20,30,40}
-# print(Dataset)
-# Dataset.add(50)
-# print(Dataset)
-# Dataset.update([60,70,80,90])
+# num = 153
 
-# set_a = {10,20,30,40}
-# set_b = {20,30,40,60}
-# print(set_a.union(set_b))   
-# print(set_a&set_b)
-# print(set_a-set_b)
-# # wap to compute the sum of A.P series  
-# set1 = frozenset({10,20,30})
-# set1.add(50)
-# print(set1)
-# array = list(map(int,input("enter element").split()))
-# key = int(input("enter key value"))
-# low = 0
-# high = len(array)-1
-# while low <=high:
-#     mid = (low+high)//2
-#     if array[mid]==key:
-#         print("Element found at index",mid)
-#     elif array[mid]<key:
-#         low=mid+1
-#     else:
-#         high = mid-1
+# if is_fibonacci(num):
+#     print(f"(num) is a fibonacci number ")
+# else:
+#     print(f"(num) is not a fibonacci number ")
 
-# INHERITANCE 
-# Parent Class
-class Animal:
-    def __init__(self, name):
-        self.name = name
+def min_max (numbers_list):
+    if not numbers_list:
+        return None, None
+    smallest = min(numbers_list)
+    largest = max(numbers_list)
+    return smallest, largest
+num_list = [1,4,3,2,5,6,95,45,2232,3]
+min_val , max_val = min_max(num_list)
 
-    def speak(self):
-        print(f"{self.name} makes a sound.")
+# print(f"Smallest = {min_val}, largest = {max_val}")  
+squares = [x**2 for x in range (1,101)]
+# print(squares) 
+for i in range(1, 6):
+    if i == 2:
+        pass       # Does nothing, just a placeholder
+    if i == 3:
+        continue   # Skips printing 3
+    if i == 5:
+        break      # Exits the loop entirely before printing 5
+    # print(i)
+# from functools import reduce 
 
-# Child Class (inherits from Animal)
-class Dog(Animal):
-    def speak(self):
-        # Using super() to call the parent's method if needed
-        # or just overriding it entirely:
-        print(f"{self.name} barks!")
+# # List of numbers
+# numbers = [10, 20, 30, 40, 50]
 
-# Child Class (inherits from Animal)
-class Cat(Animal):
-    def speak(self):
-        print(f"{self.name} meows!")
+# # Lambda function inside reduce to calculate the sum
+# total_sum =reduce(lambda x, y: x + y, numbers)
 
-# Creating instances
-my_dog = Dog("Buddy")
-my_cat = Cat("Whiskers")
+# print("sum of numbers:", total_sum)
 
-my_dog.speak()  # Output: Buddy barks!
-my_cat.speak()  # Output: Whiskers meows!
+def check_armstrong(num):
+    total_sum = 0
+    temp = num 
+    while temp>0:
+        digit = temp%10
+        total_sum += digit**3
+        temp //= 10
+    if num == total_sum:
+        print(f"{num} is armstrong number")
+    else:
+        print(f"{num} is not an armstrong number")
+
+check_armstrong(153)    
+
+
+
