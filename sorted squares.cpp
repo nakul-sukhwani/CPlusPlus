@@ -44,7 +44,7 @@ public:
                 res[id] = neg[i];
                 i++;
             } else {
-                res[id] = pos[j];
+                res[ id] = pos[j];
                 j++;
             }
             id++;
