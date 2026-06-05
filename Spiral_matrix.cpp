@@ -8,7 +8,7 @@ int print_arr (int arr[], int n ){
 }
 void Spiral_matrix(int arr[][4], int n, int m) {
     int srow = 0 , scol = 0 ;
-    int erow = n-1 , ecol = m-1;
+    int erow = m-1 , ecol = n-1;
     while (srow <= erow && scol <= ecol) {
         //top
         for (int j = scol ; j<=ecol ; j++) {
