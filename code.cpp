@@ -6,41 +6,49 @@ int print_arr (int arr[], int n ){
         cout<<arr[i]<<" ";
     }
 }
-
-class Solution {
-public:
-    void sortColors(vector<int>& nums) {
-        int n = nums.size();
-        int low = 0 , mid = 0 , high = n-1;
-            while(mid<=high){
-            if(nums[mid] == 0){
-                swap(nums[low],nums[mid]);
-                mid++;
-                low++;
-            
+void Spiral_matrix(int arr[][4], int n, int m) {
+    int srow = 0 , scol = 0 ;
+    int erow = n-1 , ecol = m-1;
+    while (srow <= erow && scol <= ecol) {
+        //top
+        for (int j = scol ; j<=ecol ; j++) {
+            cout<<arr[srow][j]<<" ";
+        }
+        //Right
+        for (int i = srow+1 ; i<=erow ; i++) {
+            cout<<arr[i][ecol]<<" ";
+        }
+        //bottom
+        for (int j = ecol-1 ; j>=scol ; j--) {
+            if (srow==erow) { //yaha ye iss liye kiya to avoid the duplicate printing of middle row
+                break;
             }
-            else if (nums[mid] == 1 ){
-                mid++; 
-
+            cout<<arr[erow][j]<<" ";
+        }
+        //left
+        for (int i = erow-1 ; i>=srow+1 ; i--) {
+            if (scol==ecol) {//yaha ye iss liye kiya to avoid the duplicate printing of middle col
+                break;
             }
-            else if(nums[mid]==2){
-                swap(nums[mid], nums[high]);
-                high--;
-            }
-            }
-            
-        
+            cout<<arr[i][scol]<<" ";
+        }
+        srow++;
+        scol++;
+        erow--;
+        ecol--;
     }
-};
+    cout<<endl;
+
+}
+
 int main (){
-    vector<int> nums = {2,0,2,1,1,0};
-    Solution mysolution;
-    mysolution.sortColors(nums);
-    cout << "Sorted array: ";
-    for (int i = 0; i < nums.size(); i++) {
-        cout << nums[i] << " ";
-    }
-    cout << endl;
+   int mat[4][4] = {
+       {1,2,3,4},
+       {5,6,7,8},
+       {9,10,11,12},
+       {13,14,15,16}
+   };
+    Spiral_matrix( mat,4,4);
 
     return 0;
 } 
