@@ -1,11 +1,30 @@
-# Ignore executable files
+# Compiled binaries and object files
 *.exe
+*.o
+*.obj
+*.out
+*.pdb
+*.ilk
 
-# Ignore IDE specific folders
+# IDE and Editor Files
 .vs/
 .vscode/
 .idea/
+*.suo
+*.user
+*.userossc
+*.sln.docstates
 
-# Ignore compile-time files
-*.out
-*.o
+# Nested Projects (tracked in separate repositories)
+first project/
+Project (antigravity)/
+test hackthon/
+
+# Local Backup Folders
+CPP files copy/
+CPP files/
+
+# System / OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
