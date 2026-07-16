@@ -1,0 +1,28 @@
+#include <iostream>
+#include <bits/stdc++.h>
+#include<math.h>
+using namespace std;
+
+// to convert any decimal to binary number system
+// int range [-2^31 , 2^31 - 1 ]
+
+int main()
+{
+    int n;
+    cin>>n;
+    int ans = 0;
+    int i = 0; 
+    while(n!=0)
+    {
+        int bit = n & 1;
+        ans = (bit * round(pow(10, i))) + ans;
+
+        n =  n >> 1 ; 
+       
+        i++;
+    }
+    cout<<"Answer : "<< ans << endl;
+
+
+    return 0;
+}
