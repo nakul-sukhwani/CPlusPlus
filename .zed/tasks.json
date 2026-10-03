@@ -1,0 +1,11 @@
+[
+  {
+    "label": "Run Current C++ File",
+    "command": "g++ \"$ZED_FILENAME\" -o \"$ZED_STEM.exe\"; if ($LASTEXITCODE -eq 0) { & \".\\$ZED_STEM.exe\" }",
+    "cwd": "$ZED_DIRNAME",
+    "save": "current",
+    "reveal": "always",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false
+  }
+]
